@@ -28,23 +28,17 @@ public class SavingsAccount {
 	public double calculateMonthlyIntrest() {
 		monthlyinterst = annualIntrestRate*savingsBalance/12;
 		savingsBalance = savingsBalance + monthlyinterst;
+		display(monthlyinterst);
 		return savingsBalance;
 	}
 
-	public static void main(String args[]) {
-		SavingsAccount saver1 = new SavingsAccount();
-		saver1.setSavingsBalance(2000);
-		SavingsAccount.setAnnualIntrestRate(0.04);
-		saver1.calculateMonthlyIntrest();
-		System.out.println("For Saver1 : Saving bal is : "+saver1.getSavingsBalance()+" Aunnal Intrest Rate is : "+SavingsAccount.getAnnualIntrestRate()
-		+" Monthly Interst : "+saver1.monthlyinterst);
-
-		SavingsAccount saver2 = new SavingsAccount();
-		saver2.setSavingsBalance(3000);
-		SavingsAccount.setAnnualIntrestRate(0.05);
-		saver2.calculateMonthlyIntrest();
-		System.out.println("For Saver2 : Saving bal is : "+saver2.getSavingsBalance()+" Aunnal Intrest Rate is : "+SavingsAccount.getAnnualIntrestRate()
-		+" Monthly Interst : "+saver2.monthlyinterst);
+	public void display(double interest) {
+		System.out.println("Monthly interest : " + interest);
+		System.out.println("Saving Balance is : " + savingsBalance);
+	}
+	
+	public static void modifyInterestRate(double interst) {
+		annualIntrestRate = interst;
 	}
 }
 
